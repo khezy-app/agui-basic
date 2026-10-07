@@ -1,0 +1,193 @@
+:root {
+  --bg: #0f172a;
+  --surface: #ffffff;
+  --surface-alt: #f8fafc;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --primary: #2563eb;
+  --danger: #dc2626;
+  --warning: #d97706;
+  --success: #16a34a;
+  --radius: 8px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+
+  --status-backlog-fg: #475569;
+  --status-backlog-bg: #f1f5f9;
+  --status-todo-fg: #334155;
+  --status-todo-bg: #e2e8f0;
+  --status-in-progress-fg: #1d4ed8;
+  --status-in-progress-bg: #dbeafe;
+  --status-in-review-fg: #b45309;
+  --status-in-review-bg: #fef3c7;
+  --status-blocked-fg: #b91c1c;
+  --status-blocked-bg: #fee2e2;
+  --status-done-fg: #15803d;
+  --status-done-bg: #dcfce7;
+  --status-cancelled-fg: #64748b;
+  --status-cancelled-bg: #f1f5f9;
+
+  --priority-low-fg: #475569;
+  --priority-low-bg: #f1f5f9;
+  --priority-medium-fg: #334155;
+  --priority-medium-bg: #e2e8f0;
+  --priority-high-fg: #b45309;
+  --priority-high-bg: #fef3c7;
+  --priority-urgent-fg: #b91c1c;
+  --priority-urgent-bg: #fee2e2;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--surface-alt);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 var(--space-2);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+p {
+  margin: 0 0 var(--space-2);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* Status + priority chips. StatusBadge/PriorityTag (FE-04) consume these classes. */
+.status-backlog,
+.status-todo,
+.status-in-progress,
+.status-in-review,
+.status-blocked,
+.status-done,
+.status-cancelled,
+.priority-low,
+.priority-medium,
+.priority-high,
+.priority-urgent {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 2px var(--space-2);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.status-backlog {
+  color: var(--status-backlog-fg);
+  background: var(--status-backlog-bg);
+}
+
+.status-todo {
+  color: var(--status-todo-fg);
+  background: var(--status-todo-bg);
+}
+
+.status-in-progress {
+  color: var(--status-in-progress-fg);
+  background: var(--status-in-progress-bg);
+}
+
+.status-in-review {
+  color: var(--status-in-review-fg);
+  background: var(--status-in-review-bg);
+}
+
+.status-blocked {
+  color: var(--status-blocked-fg);
+  background: var(--status-blocked-bg);
+}
+
+.status-done {
+  color: var(--status-done-fg);
+  background: var(--status-done-bg);
+}
+
+.status-cancelled {
+  color: var(--status-cancelled-fg);
+  background: var(--status-cancelled-bg);
+  text-decoration: line-through;
+}
+
+.priority-low {
+  color: var(--priority-low-fg);
+  background: var(--priority-low-bg);
+}
+
+.priority-medium {
+  color: var(--priority-medium-fg);
+  background: var(--priority-medium-bg);
+}
+
+.priority-high {
+  color: var(--priority-high-fg);
+  background: var(--priority-high-bg);
+}
+
+.priority-urgent {
+  color: var(--priority-urgent-fg);
+  background: var(--priority-urgent-bg);
+}
+
+/* Neutral muted text used by placeholder views. */
+.placeholder-note {
+  color: var(--text-muted);
+}

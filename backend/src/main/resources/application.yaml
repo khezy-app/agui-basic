@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: backend
+  mvc:
+    async:
+      request-timeout: 300000
+
+spring.ai:
+  model:
+    chat: openai
+  openai:
+    api-key: ${OPENAI_API_KEY:openai-key}
+    base-url: ${OPENAI_BASE_URL:http://localhost:11434/v1}
+    # OpenCode Go requires a stable session id in `x-opencode-session` for routing and
+    # prompt caching. Fixed placeholder value for local testing; override with
+    # OPENCODE_SESSION when running against opencode.ai. Sent on every request.
+    custom-headers:
+      x-opencode-session: ${OPENCODE_SESSION:local-test-session}
+    chat:
+      model: ${OPENAI_MODEL:gemma4:e4b}
+
+server:
+  port: 8080
+
+app:
+  cors:
+    allowed-origins: ${APP_CORS_ALLOWED_ORIGINS:http://localhost:5173}
+  seed:
+    enabled: ${APP_SEED_ENABLED:true}
+    # The seeder's self-check needs >= 40 tasks; lower values fail fast at boot.
+    members: ${APP_SEED_MEMBERS:6}
+    tasks: ${APP_SEED_TASKS:50}
+  ai:
+    enabled: ${APP_AI_ENABLED:true}
+
+logging:
+  level:
+    root: INFO
+    io.github.khezyapp.backend: DEBUG
+    org.springframework.ai: INFO
+    com.agui: INFO
